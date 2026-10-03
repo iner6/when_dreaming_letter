@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>信件統計編輯器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="toolbar" aria-label="編輯工具列">
+    <div class="sheet-tabs" role="tablist" aria-label="選擇底圖">
+      <button class="tab active" data-target="boys" role="tab" aria-selected="true">男生</button>
+      <button class="tab" data-target="girls" role="tab" aria-selected="false">女生</button>
+    </div>
+    <div class="font-control">
+      <span>文字大小</span>
+      <button id="fontMinus" aria-label="縮小文字">−</button>
+      <input id="fontSize" type="range" min="8" max="24" step="1" value="10" aria-label="文字大小">
+      <output id="fontValue">10</output>
+      <button id="fontPlus" aria-label="放大文字">＋</button>
+    </div>
+    <button id="exportCurrent" class="secondary">匯出目前圖片</button>
+    <button id="exportAll" class="primary">匯出兩張圖片</button>
+    <button id="clearAll" class="danger">清除所有文字</button>
+  </header>
+
+  <main id="app"></main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="confirmDialog">
+    <form method="dialog">
+      <p>確定要清除八位人物的所有文字嗎？此操作無法復原。</p>
+      <div class="dialog-actions">
+        <button value="cancel">取消</button>
+        <button value="confirm" class="danger">全部清除</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
